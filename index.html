@@ -3,8 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Bubbles</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#bubbleCanvas {
+			background: yellow;
+			width: 80%;
+		}
+	</style>
 </head>
 <body>
-	<canvas id="bubbleCanvas"></canvas>
+	<canvas id="bubbleCanvas" onClick="blowBubble(event)">	
+	</canvas>
+	<div id="locate"></div>
+
+	<script>
+		function showLocation(e){		
+			document.getElementById('locate').innerHTML = "Click position: x: "+e.clientX+", y: "+e.clientY;
+		}
+		function blowBubble(e){
+			showLocation(e);
+		}
+	</script>
 </body>
 </html>
