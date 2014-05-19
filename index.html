@@ -10,13 +10,13 @@
 		}
 		#bubbleCanvas {
 			background: yellow;
-			width: 80%;
 		}
 	</style>
 </head>
 <body>
-	<canvas id="bubbleCanvas" onClick="blowBubble(event)">	
-	</canvas>
+	<div class="canvasWrapper">
+		<canvas id="bubbleCanvas" onClick="blowBubble(event)" width="600px" height="300px"></canvas>
+	</div>
 	<div id="locate"></div>
 
 	<script>
@@ -29,10 +29,12 @@
 			locx = loc.x;
 			locy = loc.y;
 
-			var c=document.getElementById("bubbleCanvas");
-			var ctx=c.getContext("2d");
+			var c = document.getElementById("bubbleCanvas");
+			var ctx = c.getContext("2d");
 			ctx.beginPath();
-			ctx.arc(locx, locy, 5, 0, 2*Math.PI);
+			ctx.arc(locx, locy, 20, 0, 2*Math.PI);
+			ctx.fillStyle = "rgba(0,0,0,0.1)";
+			ctx.fill();
 			ctx.stroke();
 
 			document.getElementById('locate').innerHTML = "Click position: x: "+locx+", y: "+locy;
