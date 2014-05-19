@@ -20,11 +20,22 @@
 	<div id="locate"></div>
 
 	<script>
-		function showLocation(e){		
-			document.getElementById('locate').innerHTML = "Click position: x: "+e.clientX+", y: "+e.clientY;
+		var canvas = document.getElementById("bubbleCanvas");
+		function getLocation(e){		
+			return { x: e.clientX, y: e.clientY };
 		}
 		function blowBubble(e){
-			showLocation(e);
+			var loc = getLocation(e);
+			locx = loc.x;
+			locy = loc.y;
+
+			var c=document.getElementById("bubbleCanvas");
+			var ctx=c.getContext("2d");
+			ctx.beginPath();
+			ctx.arc(locx, locy, 5, 0, 2*Math.PI);
+			ctx.stroke();
+
+			document.getElementById('locate').innerHTML = "Click position: x: "+locx+", y: "+locy;
 		}
 	</script>
 </body>
