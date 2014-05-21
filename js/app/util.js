@@ -1,4 +1,5 @@
-var c, ctx;
+var c = document.getElementById("bubbleCanvas");
+var ctx;
 var dx = 0;
 var dy = 1;
 var x, y;
@@ -7,7 +8,6 @@ function getLocation(e){
 	return { x: e.clientX, y: e.clientY };
 }
 function blowBubble(e){
-	var c = document.getElementById("bubbleCanvas");
 	ctx = c.getContext("2d");
 	var loc = getLocation(e);
 	x = loc.x;
@@ -16,7 +16,7 @@ function blowBubble(e){
 	// document.getElementById('locate').innerHTML = "Click position: x: "+x+", y: "+y;
 }
 function drawBubble(){
-	ctx.clearRect(0,0,600,300);
+	ctx.clearRect(0,0,c.width,c.height);
 	ctx.beginPath();
 	ctx.arc(x, y, 20, 0, 2*Math.PI);
 	ctx.closePath();
